@@ -8,7 +8,7 @@ function getTime() {
   const seconds = date.getSeconds()
   clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
     minutes < 10 ? `0${minutes}` : minutes
-  }:${seconds < 10 ? `0${seconds}` : seconds}`
+  }:${seconds < 10 ? `0${seconds}` : seconds}`//10보다 아래이면 숫자 앞에 0이 붙도록
 }
 
 function init() {
