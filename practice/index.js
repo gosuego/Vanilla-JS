@@ -1,5 +1,7 @@
 function myName(name, age, live) {
-  console.log("Hello!", name, "you have", age, "years of age.", name, "lives", live)
+  return `Hello ${name} my age is ${age} I live in ${live}`
 }
 
-myName("GoSue", 24, "songpa")
+const sayHEllo = myName("GoSue", 24, "songpa")
+
+console.log(sayHEllo)
