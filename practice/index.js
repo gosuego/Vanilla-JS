@@ -1,1 +1,1 @@
-alert("I am starting vaila js")
+console.log("I am starting vaila js")
