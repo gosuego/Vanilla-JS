@@ -13,4 +13,4 @@
 
 - Variable 변수생성/초기화/사용
 - Array []
-- Object {}
+- Object {} consle.log is a object
