@@ -5,7 +5,7 @@
 - Function
 - Variable 변수 constants let
 - Class Object Arrays
-- DOM
+- DOM(Document Object model)
 - 자바스크립트로 HTML을 바꿀 수 있다. (자주 쓰이지 않음)
 - API는 다른 서버로부터 데이터를 손쉽게 가져올 수 있는 수단이다.
 
