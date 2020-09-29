@@ -1,5 +1,2 @@
 const title = document.getElementById("title")
-
-console.log(title)
-
-console.error("peep")
+title.innerHTML = "Hi i am Go sue🥑"
