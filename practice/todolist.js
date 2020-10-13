@@ -4,7 +4,7 @@ pendingList = document.querySelector(".pending"),
 finishedList =document.querySelector(".finished");
 
 const PENDINGS_LS = "pendings",
- FINISED_LS = "finished";
+ FINISHED_LS = "finished";
 
 let pendings = [],
 finished=[];
@@ -57,14 +57,15 @@ function paintPending(text) {
   const finBtn = document.createElement("button");
   const span = document.createElement("span");
   const newId = pendings.length + 1;
-  delBtn.innerText = "❤️";
+  delBtn.innerText = "delete❤️";
   delBtn.addEventListener("click", deletePending);
-  finBtn.innerText = "🌈";
+  finBtn.innerText = "finished🌈";
   finBtn.addEventListener("click", pendingToFinished);
   span.innerText = text;
+  li.appendChild(span);
   li.appendChild(delBtn);
   li.appendChild(finBtn);
-  li.appendChild(span);
+  
   li.id = newId;
   pendingList.appendChild(li);
   const toDoObj = {
@@ -75,19 +76,20 @@ function paintPending(text) {
   savePendings()
 }
 function paintFinished(text){
-    const li =doucument.createElement("li");
+    const li =document.createElement("li");
     const delBtn = document.createElement("button");
-  const finBtn = doucument.createElement("button");
+  const finBtn = document.createElement("button");
   const span = document.createElement("span");
   const newId = pendings.length + 1;
-  delBtn.innerText = "❤️";
+  delBtn.innerText = "delete❤️";
   delBtn.addEventListener("click", deleteFinished);
-  finBtn.innerText = "🌈";
+  finBtn.innerText = "pending🌈";
   finBtn.addEventListener("click", finishToPending);
   span.innerText = text;
+  li.appendChild(span);
   li.appendChild(delBtn);
   li.appendChild(finBtn);
-  li.appendChild(span);
+ 
   li.id = newId;
  finishedList.appendChild(li);
  const toDoObj = {
@@ -114,7 +116,7 @@ function loadToDos() {
       paintPending(toDo.text)
     });
   }
-  const loadedFinished = localStorage.getItem(FINISED_LS);
+  const loadedFinished = localStorage.getItem(FINISHED_LS);
   if (loadedFinished !== null) {
     const parsedFinished = JSON.parse(loadedFinished);
     parsedFinished.forEach(function (toDo) {
