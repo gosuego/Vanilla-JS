@@ -1,67 +1,131 @@
 const toDoform = document.querySelector(".js-toDoForm"),
-toDoinput = toDoform.querySelector("input"),
+toDoInput = toDoform.querySelector("input"),
 pendingList = document.querySelector(".pending"),
 finishedList =document.querySelector(".finished");
 
-const TODOS_LS = "toDos"
+const PENDINGS_LS = "pendings",
+ FINISED_LS = "finished";
 
-let toDos = []
+let pendings = [],
+finished=[];
 
-function deleteToDo(event) {
+function deletePending(event) {
   const btn = event.target
   const li = btn.parentNode
-  toDoList.removeChild(li)
-  const cleanToDos = toDos.filter(function (toDo) {
-    return toDo.id !== parseInt(li.id)
-  })
-  toDos = cleanToDos
-  saveToDos()
+  pendingList.removeChild(li)
+  const cleanToDos = pendings.filter(function (pending) {
+    return pending.id !== parseInt(li.id)
+  });
+  pendings = cleanToDos
+  savePendings()
 }
+function deleteFinished(event) {
+    const btn = event.target;
+    const li = btn.parentNode;
+    finishedList.removeChild(li);
+    const cleanToDos = finished.filter(function (finished) {
+      return finished.id !== parseInt(li.id);
+    });
+    finished = cleanToDos;
+    saveFinished();
+  }
 
-function saveToDos() {
-  localStorage.setItem(TODOS_LS, JSON.stringify(toDos))
+function savePendings() {
+  localStorage.setItem(PENDINGS_LS, JSON.stringify(pendings));
 }
+function saveFinished() {
+    localStorage.setItem(FINISHED_LS, JSON.stringify(finished));
+  }
 
-function paintToDo(text) {
-  const li = document.createElement("li")
-  const delBtn = document.createElement("button")
-  const span = document.createElement("span")
-  const newId = toDos.length + 1
-  delBtn.innerText = "❤️"
-  delBtn.addEventListener("click", deleteToDo)
-  span.innerText = text
-  li.appendChild(delBtn)
-  li.appendChild(span)
-  li.id = newId
-  toDoList.appendChild(li)
+  function pendingToFinished(event) {
+    const btn = event.target;
+    const li = btn.parentNode;
+    deletePending(event);
+    paintFinished(li.querySelector("span").innerText);
+  }
+  
+  function finishToPending(event) {
+    const btn = event.target;
+    const li = btn.parentNode;
+    deleteFinished(event);
+    paintPending(li.querySelector("span").innerText);
+  }
+  
+function paintPending(text) {
+  const li = document.createElement("li");
+  const delBtn = document.createElement("button");
+  const finBtn = document.createElement("button");
+  const span = document.createElement("span");
+  const newId = pendings.length + 1;
+  delBtn.innerText = "❤️";
+  delBtn.addEventListener("click", deletePending);
+  finBtn.innerText = "🌈";
+  finBtn.addEventListener("click", pendingToFinished);
+  span.innerText = text;
+  li.appendChild(delBtn);
+  li.appendChild(finBtn);
+  li.appendChild(span);
+  li.id = newId;
+  pendingList.appendChild(li);
   const toDoObj = {
     text: text,
-    id: newId,
-  }
-  toDos.push(toDoObj)
-  saveToDos()
+    id: newId
+  };
+  pendings.push(toDoObj)
+  savePendings()
 }
+function paintFinished(text){
+    const li =doucument.createElement("li");
+    const delBtn = document.createElement("button");
+  const finBtn = doucument.createElement("button");
+  const span = document.createElement("span");
+  const newId = pendings.length + 1;
+  delBtn.innerText = "❤️";
+  delBtn.addEventListener("click", deleteFinished);
+  finBtn.innerText = "🌈";
+  finBtn.addEventListener("click", finishToPending);
+  span.innerText = text;
+  li.appendChild(delBtn);
+  li.appendChild(finBtn);
+  li.appendChild(span);
+  li.id = newId;
+ finishedList.appendChild(li);
+ const toDoObj = {
+    text: text,
+    id: newId
+  };
+  finished.push(toDoObj);
+  saveFinished();
+}
+
 
 function handleSubmit(event) {
   event.preventDefault()
   const currentValue = toDoInput.value
-  paintToDo(currentValue)
+  paintPending(currentValue)
   toDoInput.value = ""
 }
 
 function loadToDos() {
-  const loadedToDos = localStorage.getItem(TODOS_LS)
-  if (loadedToDos !== null) {
-    const parsedToDos = JSON.parse(loadedToDos)
+  const loadedPendings = localStorage.getItem(PENDINGS_LS)
+  if (loadedPendings !== null) {
+    const parsedToDos = JSON.parse(loadedPendings)
     parsedToDos.forEach(function (toDo) {
-      paintToDo(toDo.text)
-    })
+      paintPending(toDo.text)
+    });
+  }
+  const loadedFinished = localStorage.getItem(FINISED_LS);
+  if (loadedFinished !== null) {
+    const parsedFinished = JSON.parse(loadedFinished);
+    parsedFinished.forEach(function (toDo) {
+      paintFinished(toDo.text);
+    });
   }
 }
 
 function init() {
   loadToDos()
-  toDoForm.addEventListener("submit", handleSubmit)
+  toDoform.addEventListener("submit", handleSubmit)
 }
 
 init()
