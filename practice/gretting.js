@@ -8,7 +8,7 @@ const USER_LS = "currentUser",
 function saveName(text) {
   localStorage.setItem(USER_LS, text)
 }
-
+//event 기본값을 막는다. 
 function handleSubmit(event) {
   event.preventDefault()
   const currentValue = input.value
@@ -24,14 +24,16 @@ function askForName() {
 function paintGreeting(text) {
   form.classList.remove(SHOWING_CN)
   greeting.classList.add(SHOWING_CN)
-  greeting.innerText = `Hello ${text} what's your plan ?`
+  greeting.innerText = `Hello ${text} what's your christmas plan ?`
 }
 
 function loadName() {
   const currentUser = localStorage.getItem(USER_LS)
   if (currentUser === null) {
+    //she is not
     askForName()
   } else {
+    //she is
     paintGreeting(currentUser)
   }
 }

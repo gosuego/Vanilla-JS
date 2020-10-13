@@ -5,3 +5,11 @@ h1 {
   color: #34495e;
   text-align: center;
 }
+
+.form,
+.greetings {
+  display: none;
+}
+.showing {
+  display: block;
+}
