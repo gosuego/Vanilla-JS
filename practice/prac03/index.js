@@ -13,8 +13,3 @@ function result(){
    if(!calculator.value) return false;
    calculator.value=eval(calculator.value);
 }
-
-function plus(){
-  
-    calculator.value = "+";
-}
