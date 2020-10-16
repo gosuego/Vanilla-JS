@@ -6,6 +6,9 @@ button {
   border: none;
   background-color: aquamarine;
 }
+button:hover {
+  opacity: 0.5;
+}
 input {
   background-color: black;
   color: white;
