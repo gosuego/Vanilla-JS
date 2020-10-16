@@ -7,6 +7,11 @@ function reset() {
     calculator.value = "";
    
   }
-  function result(){
-  
-  }
+function result(){
+
+}
+
+function plus(){
+    const calculator = document.querySelector(".calculator");
+    calculator.value = "+";
+}
