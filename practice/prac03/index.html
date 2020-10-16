@@ -7,35 +7,41 @@
     <title>계산기 만들기</title>
 </head>
 <body>
-  
-      <div>
-          <input class="calculator" type="text">
-          <button onclick="reset()">c</button>
-      </div>
-      <div>
-          <button onclick="addOutput(7)">7</button>
-          <button onclick="addOutput(8)">8</button>
-          <button onclick="addOutput(9)">9</button>
-          <button onclick="plus('+')">+</button>
-      </div>
-      <div>
-        <button onclick="addOutput(4)">4</button>
-        <button onclick="addOutput(5)">5</button>
-        <button onclick="addOutput(6)">6</button>
-        <button onclick="minus('-')">-</button>
-    </div>
-    <div>
-        <button onclick="addOutput(1)">1</button>
-        <button onclick="addOutput(2)">2</button>
-        <button onclick="addOutput(3)">3</button>
-        <button onclick="multiply('*')">*</button>
-    </div>
-    <div>
-        <button style="width: 55px" onclick="addOutput(0)">0</button>
-      
-        <button onclick="result()">=</button>
-        <button onclick="division('/')">/</button>
-    </div>
+    <table border="1">
+        <tr>
+            <td colspan="3">
+                <input class="calculator" type="text">
+            </td>
+            <td>
+                <button onclick="reset()">c</button>
+            </td>
+
+        </tr>
+        <tr>
+            <td><button onclick="addOutput(7)">7</button></td>
+            <td>  <button onclick="addOutput(8)">8</button></td>
+            <td> <button onclick="addOutput(9)">9</button></td>
+            <td>    <button onclick="plus('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="addOutput(4)">4</button></td>
+            <td> <button onclick="addOutput(5)">5</button></td>
+            <td> <button onclick="addOutput(6)">6</button></td>
+            <td>  <button onclick="minus('-')">-</button></td>
+        </tr>
+        <tr>
+            <td> <button onclick="addOutput(1)">1</button></td>
+            <td> <button onclick="addOutput(2)">2</button></td>
+            <td><button onclick="addOutput(3)">3</button></td>
+            <td>  <button onclick="multiply('*')">*</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick="addOutput(0)">0</button></td>
+            <td> <button onclick="result()">=</button></td>
+            <td><button onclick="division('/')">/</button></td>
+        </tr>
+    </table>
+
     <script src="index.js"></script>
 </body>
 </html>
