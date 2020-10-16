@@ -1,17 +1,20 @@
+const calculator = document.querySelector(".calculator");
+
 function addOutput(num){
-    const calculator = document.querySelector(".calculator");
+   
     calculator.value=calculator.value + num;
 }
 function reset() {
-    const calculator = document.querySelector(".calculator");
+   
     calculator.value = "";
    
   }
 function result(){
-
+   if(!calculator.value) return false;
+   calculator.value=eval(calculator.value);
 }
 
 function plus(){
-    const calculator = document.querySelector(".calculator");
+  
     calculator.value = "+";
 }
