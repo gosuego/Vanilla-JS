@@ -59,7 +59,7 @@ function paintPending(text) {
   const newId = pendings.length + (Math.floor(Math.random()*123456789)+1);
   delBtn.innerText = "delete❤️";
   delBtn.addEventListener("click", deletePending);
-  finBtn.innerText = "finished🌈";
+  finBtn.innerText = "complete🌈";
   finBtn.addEventListener("click", pendingToFinished);
   span.innerText = text;
   li.appendChild(span);
@@ -83,7 +83,7 @@ function paintFinished(text){
   const newId = pendings.length + (Math.floor(Math.random()*123456789)+1);
   delBtn.innerText = "delete❤️";
   delBtn.addEventListener("click", deleteFinished);
-  finBtn.innerText = "pending🌈";
+  finBtn.innerText = "prepare🌈";
   finBtn.addEventListener("click", finishToPending);
   span.innerText = text;
   li.appendChild(span);
