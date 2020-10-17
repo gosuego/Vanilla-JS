@@ -30,6 +30,15 @@ h1 {
   text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff, 0 0 2rem #fff, 0 0 4rem #fff,
     0 0 6rem #fff, 0 0 8rem #fff, 0 0 10rem #fff;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .bgImage {
   position: absolute;
   top: 0;
@@ -38,10 +47,4 @@ h1 {
   height: 100%;
   z-index: -1;
   animation: fadeIn 0.5s linear;
-}
-root {
-  -neon-text-color: #f40;
-  --neon-border-color: #08f;
-  --neon-border-color-done: #0f4;
-  --neon-border-color-del: #f00;
 }
