@@ -1,5 +1,13 @@
 # Vanilla JS
 
+## [배포 링크](https://gosuego.github.io/Vanilla-JS/)
+
+![demo](images/christmas.png)
+
+## 사용기술
+
+HTML, CSS, JavaScript
+
 - 바닐라 자바스크립트는 브라우저를 통해 제공되는 자바스크립트
 - Console
 - Function
