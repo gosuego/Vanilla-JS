@@ -2,7 +2,7 @@
 
 ## [배포 링크](https://gosuego.github.io/Vanilla-JS/)
 
-![demo](images/christmas.png)
+![demo](./images/christmas.png)
 
 ## 사용기술
 
