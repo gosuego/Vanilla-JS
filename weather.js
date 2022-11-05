@@ -1,4 +1,4 @@
-const API_KEY = "241051bf13976dd3ddf8b8d9f247255e";
+const API_KEY = "02380d50bd088d4bae2d93bbd513fd7d";
 const COORDS = 'coords';
 const weather = document.querySelector(".weather");
 
